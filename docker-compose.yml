@@ -1,0 +1,13 @@
+services:
+  clicksyder:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      TURSO_DATABASE_URL: file:/app/data/clicksyder.db
+    volumes:
+      - clicksyder_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  clicksyder_data:
